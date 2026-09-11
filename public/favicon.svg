@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="MTX Identity Security mark">
+  <rect width="64" height="64" rx="12" fill="#0B1B2B"/>
+  <circle cx="22" cy="24" r="7" fill="none" stroke="#3DB9E0" stroke-width="3"/>
+  <circle cx="42" cy="24" r="7" fill="none" stroke="#6B8FCE" stroke-width="3"/>
+  <circle cx="32" cy="42" r="7" fill="none" stroke="#2EC4B6" stroke-width="3"/>
+  <path d="M28 28l4 8m4-8l-4 8M29 24h6" stroke="#E8EEF5" stroke-width="2" stroke-linecap="round"/>
+</svg>
