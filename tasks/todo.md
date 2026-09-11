@@ -12,12 +12,13 @@
 * [x] Build Remediation, Architecture, Roles, Analytics
 * [x] Build Governance, Roadmap, Offering, Maturity, Why, CTA
 * [x] README, accessibility, lint, production build
-* [ ] Commit, push, PR, verify Pages readiness
+* [x] Commit, push, PR, verify Pages readiness
 
 ## Review
 
 * Production build succeeds (`tsc -b && vite build`)
 * Relative asset paths confirmed in `dist/index.html`
-* Interactive sections verified in browser (graph, risk, review, remediation, nav)
-* Contact form validation improved (clear errors on edit; full-width governance field)
+* Interactive sections verified (graph, risk, review, remediation, contact)
+* Contact form id collision with `#governance` section fixed
 * Forbidden marketing claims searched; none present as product assertions
+* Pages workflow ready; enable GitHub Actions Pages source after merge to `main`
