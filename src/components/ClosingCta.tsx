@@ -31,6 +31,13 @@ export function ClosingCta() {
 
   const update = (key: keyof FormState, value: string) => {
     setForm((prev) => ({ ...prev, [key]: value }))
+    setErrors((prev) => {
+      if (!prev[key]) return prev
+      const next = { ...prev }
+      delete next[key]
+      return next
+    })
+    setConfirmed(false)
   }
 
   const validate = () => {
@@ -128,13 +135,14 @@ export function ClosingCta() {
               {errors.environment ? <span className="error">{errors.environment}</span> : null}
             </div>
 
-            <div className="form-field">
+            <div className="form-field form-field--full">
               <label htmlFor="concern">Primary concern</label>
               <select
                 id="concern"
                 value={form.concern}
                 onChange={(e) => update('concern', e.target.value)}
                 aria-invalid={Boolean(errors.concern)}
+                aria-describedby={errors.concern ? 'concern-error' : undefined}
                 required
               >
                 <option value="">Select a concern</option>
@@ -145,19 +153,33 @@ export function ClosingCta() {
                 <option>Remediation governance</option>
                 <option>External access</option>
               </select>
-              {errors.concern ? <span className="error">{errors.concern}</span> : null}
+              {errors.concern ? (
+                <span id="concern-error" className="error">
+                  {errors.concern}
+                </span>
+              ) : null}
             </div>
 
-            <div className="form-field">
-              <label htmlFor="governance">Current governance approach</label>
+            <div className="form-field form-field--full">
+              <label htmlFor="governance-approach">Current governance approach</label>
               <input
-                id="governance"
+                id="governance-approach"
+                name="governance-approach"
                 value={form.governance}
                 onChange={(e) => update('governance', e.target.value)}
                 aria-invalid={Boolean(errors.governance)}
+                aria-describedby={errors.governance ? 'governance-error' : 'governance-help'}
+                placeholder="Example: annual manager reviews with limited usage context"
                 required
               />
-              {errors.governance ? <span className="error">{errors.governance}</span> : null}
+              <span id="governance-help" className="note">
+                Describe how access reviews or approvals work today.
+              </span>
+              {errors.governance ? (
+                <span id="governance-error" className="error">
+                  {errors.governance}
+                </span>
+              ) : null}
             </div>
 
             <div className="form-field form-field--full">
